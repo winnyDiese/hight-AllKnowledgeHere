@@ -57,7 +57,7 @@ export default function Home() {
               <input type="hidden" />
               <button type='submit' onClick={()=>deleteTodo(todo._id)}>Remove</button>
             </form>
-            <Link href={"/edit/"+todo._id}>
+            <Link href={"/edit/id="+todo._id}>
               <button>edit</button>
             </Link>
           </div>
@@ -66,7 +66,7 @@ export default function Home() {
       ))}
       
     </ul>
-    
+
   </>
  )
 }
