@@ -2,6 +2,7 @@
 import Navbar from '@/components/Navbar'
 import dbConnexion from '@/lib/dbConnexion'
 import Todo from '@/models/todo'
+import Link from 'next/link'
 import { redirect, useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
@@ -17,13 +18,12 @@ export default function Home() {
     .then(json => setTodos(json))
   },[])
 
+
+
+
   const formStabilite = (e)=>{
     e.preventDefault()
-    // console.log('Stabilite')
   }
-
-  // console.log({Todo})
-
 
   const deleteTodo = async (id)=>{
     fetch(`/api/delete?id=${id}`)
@@ -57,13 +57,16 @@ export default function Home() {
               <input type="hidden" />
               <button type='submit' onClick={()=>deleteTodo(todo._id)}>Remove</button>
             </form>
-            <button>Add</button>
+            <Link href={"/edit/"+todo._id}>
+              <button>edit</button>
+            </Link>
           </div>
           <hr/>
         </li>
       ))}
       
     </ul>
+    
   </>
  )
 }

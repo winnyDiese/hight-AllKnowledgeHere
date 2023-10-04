@@ -6,9 +6,9 @@ const add = async (req, res)=>{
     
     const {title,todo} = req.body
     const newTodo =  new Todo({title, todo})
-    const result =  await newTodo.save()
 
-    res.send(result)
+    const result =  await newTodo.save()
+    return result
 }
 
 export default add
